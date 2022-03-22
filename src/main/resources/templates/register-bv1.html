@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{fragments/head}"></head>
+<body>
+
+<main class="p-5 align-content-center bg-blur my-register-div">
+
+    <header th:include="~{fragments/nav}"></header>
+
+    <h1 class="text-light border-bottom">Register</h1>
+    <div class="d-flex justify-content-center ">
+        <div class="row g-3 align-items-center">
+            <img alt="Picture of Article" class="w-50 rounded" src="/images/kartonagen5.png" th:alt="picture">
+        </div>
+        <div class="row g-3">
+            <form th:action="@{/users/register}" th:method="POST" th:object="${userRegisterBindingModel}">
+                <!-- Username -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputUsername"></label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="username"
+                               type="text"
+                               class="form-control"
+                               aria-describedby="usernameHelpInline"
+                               id="inputUsername"
+                               maxlength="20"
+                               minlength="3" placeholder="Username" required
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{username}">
+
+
+                        <small class="invalid-feedback text-light form-text bg-danger rounded"
+                               id="usernameError"
+                               th:errors="*{username}" th:if="${#fields.hasErrors('username')}">
+                            Username length must be more than 3 characters</small>
+
+                        <small class="text-light form-text bg-danger rounded" id="usernameUniqueError"
+                               th:if="${existingUsername}"> Username is already occupied</small>
+
+                    </div>
+                </div>
+                <!-- EO: Username -->
+
+                <!-- First name -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label  " for="inputFullName"> </label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="fullName"
+                               type="text"
+                               aria-describedby="fullNameHelpInline"
+                               maxlength="20"
+                               minlength="3" placeholder="Full Name" required
+                               id="inputFullName"
+                               class="form-control"
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{fullName}">
+                        <small class=" text-light form-text bg-danger rounded" id="fullNameError"
+                               th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}">
+                            Full name length must be more than 3 characters</small>
+                    </div>
+                </div>
+                <!-- EO: First name -->
+
+                <!-- Email -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputEmail"> </label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="email"
+                               type="text"
+                               aria-describedby="emailHelpInline"
+                               placeholder="Email"
+                               required
+                               id="inputEmail"
+                               class="form-control"
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{email}">
+                        <small id="emailError"
+                               class="text-light form-text bg-danger rounded"
+                               th:errors="*{email}" th:if="${#fields.hasErrors('email')}"
+                        >Must be valid email</small>
+                    </div>
+                </div>
+                <!-- EO: Email -->
+
+                <!-- Password -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputPassword"></label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="password"
+                               type="password"
+                               th:placeholder="Password"
+                               minlength="3" required
+                               th:errorclass="is-invalid"
+                               id="inputPassword"
+                               class="form-control"
+                               aria-describedby="passwordHelpInline">
+                        <small id="passwordError"
+                               class="invalid-feedback text-light form-text bg-danger rounded">
+                            Password length must be between 8 and 20 characters and passwords should match.
+                        </small>
+                    </div>
+                </div>
+                <!-- EO: Password -->
+
+                <!-- Password confirm -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputConfirmPassword"></label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="confirmPassword"
+                               type="password"
+                               placeholder="Passwort bestätigen"
+                               required
+                               id="inputConfirmPassword"
+                               class="form-control"
+                               aria-describedby="confirmPasswordHelpInline">
+                        <small id="confirmPasswordError"
+                               class="invalid-feedback text-light form-text bg-danger rounded">
+                            Password length must be between 8 and 20 characters and passwords should match.
+                        </small>
+                    </div>
+                </div>
+                <!-- EO: Password confirm -->
+
+                <div class="d-flex justify-content-center mt-4">
+                    <!--                    <button class="btn btn-primary btn-block w-50" type="submit">Register</button>-->
+                    <button class="btn btn-sm btn-outline-secondary w-75" type="submit">Register</button>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+</main>
+<footer th:include="~{fragments/footer}"></footer>
+</body>
+</html>

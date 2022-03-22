@@ -1,0 +1,63 @@
+carousel:
+  images: carton-cup8z.png,kaffe-maschine-7z.png,karton-14z.png,kartonagen5.pnglide-bordi12z.pnglide-gold3.png,lide-orange-12z.png
+  refresh-cron: '* */1 * * * *'
+info:
+  app:
+    description: REST MVC Demo using Spring MVC, Boot, Data and Swagger
+    name: REST MVC Demo
+    version: 1.0-
+logging:
+  level:
+    org: WARN
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, mappings, info, metrics, threaddump, heapdump, shutdown,
+          beans
+server:
+  port: 8080
+servlet:
+  multipart:
+    max-file-sizel: 10MB
+    max-request-sizel: 10MB
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ${MSQL_SECRET}
+    url: jdbc:mysql://localhost:3306/forgot_password?createDatabaseIfNotExist=true
+    username: root
+    initialize: true
+
+
+  spring:
+    mail:
+      host: smtp.gmail.com
+      password: ${PASSWORD}
+      port: 587
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+      username: kasparitaly@gmail.com
+
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write_dates_as_timestamps: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+
+
+

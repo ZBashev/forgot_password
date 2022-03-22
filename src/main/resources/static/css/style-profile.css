@@ -1,0 +1,57 @@
+#myProfile-invoice {
+    margin-top: 55px;
+
+
+}
+
+
+.row-p {
+
+    height: 2%;
+    width: 35%;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    margin-left: 135px;
+
+    margin-right: 20px;
+}
+
+
+#myProfile {
+
+    /*margin-top: 1px;*/
+    /*margin-left: 10px;*/
+    /*margin-right: 14%;*/
+
+
+}
+
+.d-flex-p {
+
+    margin-top: -5px;
+
+}
+
+/*.form-row-p{
+margin-top: 1px;
+}*/
+
+/*#anrede {
+
+    width: auto;
+    !*margin-top: 20px;*!
+    !*margin-left: 217px;*!
+}*/
+
+#salutation {
+
+    width: auto;
+
+    margin-left: 25px;
+}
+
+#rechnunginfo {
+    margin-top: 15px;
+    margin-left: 240px;
+}

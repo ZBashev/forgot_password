@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<th:block>
+
+
+    <!--logout btn-->
+    <th:block sec:authorize="authenticated">
+        <nav class=" navbar navbar-expand-xl  fixed-top " id="logoutBtn">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <form method="POST" th:action="@{/logout}">
+                        <button class="btn btn-danger btn-block  " type="submit">Abmelden</button>
+                        <!--  <button class=" nav-link" th:text-lg-right   type="submit">LOGOUT</button>-->
+
+                        <!--  <a class="nav-link text-lg-right active h5" href="/">LOGOUT</a>-->
+                    </form>
+                </li>
+            </ul>
+        </nav>
+
+    </th:block>
+
+
+    <nav class="navbar navbar-expand-lg bg-nav rounded">
+
+
+        <a class="nav-link" id="logo" th:href="@{/}">
+            <img alt="logo" border="5" id="fon" th:src="@{/images/boilTogo8.png}">
+
+            <!--        <a class="nav-link" id="logo" th:href="@{/}">-->
+            <!--            <img alt="logo"-->
+            <!--                 border="0"-->
+            <!--                 src="/images/boilTogo2.png"/>-->
+            <!--                 src="http://x-lines.ru/letters/i/basicserif/9644/dc2127/42/1/ejzs15byktz1yt5x.png"/>-->
+        </a>
+        <!-- admin panel-->
+        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+            <div class="dropdown" sec:authorize="authenticated">
+                <button aria-expanded="false" aria-haspopup="true" class="btn btn-link btn-lg  dropdown-toggle"
+                        data-toggle="dropdown" id="dropdownAdminButton" type="button">
+                    Admin Panel
+                </button>
+                <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                    <a class="dropdown-item" href="/statistics">Statistics</a>
+                    <a class="dropdown-item" th:href="@{/articles/add}">Add article</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+        </th:block>
+        <!--  END admin panel-->
+
+
+        <!--        categories dropdown-->
+
+        <div class="dropdown">
+            <button aria-expanded="false" aria-haspopup="true" class=" btn  btn-link btn-lg  dropdown-toggle"
+                    data-toggle="dropdown" id="dropdownCategoryButton" type="button"> Categories
+            </button>
+            <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                <a class="dropdown-item" href=" ">хартиени изделия </a>
+                <a class="dropdown-item" href=" ">торбички и пликове</a>
+
+                <!--<button aria-expanded="false" aria-haspopup="true" class="btn btn-link   dropdown-item"
+                        data-toggle="dropdown" id="drobdownEinweggeschirr" type="button"> EINWEGGESCHIRR
+                </button>-->
+
+
+                <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-item"
+                        data-toggle="dropdown" id="drobdownEinweggeschirr" type="button"> EINWEGGESCHIRR
+                </button>
+
+                <div aria-labelledby="dropdownMenuButton" class="dropdown-menu" id="product">
+                    <a class="dropdown-item" th:href="@{/category/2-cups-bv1}">Trinkbecher</a>
+                    <a class="dropdown-item" href="#">Beschetk</a>
+
+                </div>
+
+                <a class="dropdown-item" href="#">картонени опаковки</a>
+                <a class="dropdown-item" href="#">препарати за почистване</a>
+                <a class="dropdown-item" href="#">хотелска козметика к консумативи</a>
+                <a class="dropdown-item" href="#">дозатори</a>
+                <a class="dropdown-item" href="#">други</a>
+            </div>
+        </div>
+
+        <!--     END  categories dropdown-->
+
+
+        <!-- drobdown probe
+
+          Default dropright button
+         <div class="btn-group-dropright">
+             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Dropright
+             </button>
+             <div class="dropdown-menu">
+                  Dropdown menu links
+             </div>
+         </div>
+
+          Split dropright button
+         <div class="btn-group dropright">
+             <button type="button" class="btn btn-secondary">
+                 Split dropright
+             </button>
+             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <span class="sr-only">Toggle Dropright</span>
+             </button>
+             <div class="dropdown-menu">
+                  Dropdown menu links
+             </div>
+         </div>
+
+
+
+         drobdown probe END
+ -->
+
+
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+
+            <ul class="navbar-nav row ">
+                <th:block sec:authorize="!authenticated">
+                    <div class="btn-group  text-dark">
+                        <li class="nav-item col-md-auto ">
+                            <a class="nav-link   active h5" th:href="@{/new-partner}">BESUCHER</a>
+                        </li>
+                        <li class="nav-item col-md-auto">
+                            <a class="nav-link   active h5" th:href="@{/users/login}">Login</a>
+                        </li>
+                        <li class="nav-item col-md-auto">
+                            <a class="nav-link   active h5" th:href="@{/users/register}">Register</a>
+                        </li>
+                    </div>
+                </th:block>
+
+                <!--     counter-->
+                <th:block sec:authorize="authenticated">
+
+
+                    <div class="header-cart" th:object="${seeCounterPurchases}">
+                        <li class="nav-item ">
+
+                            <a class="col-sm-9 text-danger active h5" th:text="${seeCounterPurchases}">0</a>
+
+                        </li>
+
+                    </div>
+
+                </th:block>
+
+                <!--  END counter-->
+
+
+                <th:block sec:authorize="authenticated">
+
+                    <div class="btn-group  text-dark">
+                        <li class="nav-item ">
+
+
+                            <a class="nav-link text-dark active h5" th:href="@{/checkout/cart}">Artikel</a>
+
+
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link  active h5" th:href="@{/home}">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link   active h5" th:href="@{/my/profile}"> My Profile</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link   active h5" th:href="@{/articles/all}">All articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  active h5" href="/articles/all">All articles</a>
+                        </li>
+                        <!--                    <li class="nav-item col-md-4">-->
+                        <!--                        <a class="nav-link text-white active h5" href="/users/login">Login</a>-->
+                        <!--                    </li>-->
+                        <!--                    <li class="nav-item col-md-4">-->
+                    </div>
+
+                    <!--  <li class="nav-item">
+                          <form method="POST" th:action="@{/logout}">
+                              <button class="btn btn-danger btn-block  " type="submit">Abmelden</button>
+                              &lt;!&ndash;  <button class=" nav-link" th:text-lg-right   type="submit">LOGOUT</button>&ndash;&gt;
+
+                              &lt;!&ndash;  <a class="nav-link text-lg-right active h5" href="/">LOGOUT</a>&ndash;&gt;
+
+
+                          </form>
+                      </li>-->
+
+
+                </th:block>
+
+            </ul>
+
+
+        </div>
+
+
+    </nav>
+
+
+</th:block>
+</html>

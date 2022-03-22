@@ -1,0 +1,193 @@
+
+.dropdown-menu {
+
+
+    /*background-color: rgb(0, 0, 0); !* Fallback color *! */
+    /*background-color: rgba(0, 0, 0, 0.3); !* Black w/opacity/see-through *!*/
+    /*background-color: rgba(0, 0, 0, 0.3); !* Black w/opacity/see-through *!*/
+    background-color: rgb(245, 234, 234); /* Fallback color */
+
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+    width: auto;
+    height: auto;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*.bg-nav #logo {
+    margin: 1px;
+    width: 1px;
+
+}*/
+
+.bg-nav, #navbarNav ul {
+    /*list-style-type:    armenian;*/
+    margin-right: 0px;
+    padding-right: 1px;
+    /*overflow:  visible;*/
+    /*background-color: white;*/
+}
+
+.bg-nav #navbarNav li {
+
+    float: left;
+    margin-right: 15px;
+    padding: 0px;
+    /*background-color: #1c7430;*/
+}
+
+
+.bg-nav #navbarNav li a {
+    display: block;
+    padding: 0px;
+
+    /*background-color: #721c24;*/
+}
+
+
+.dropdown #dropdownCategoryButton {
+
+
+    color: black;
+}
+
+#drobdownEinweggeschirr #product a {
+
+
+    color: white;
+
+
+}
+
+.info #info-row ul li {
+    /*background-color: black;*/
+
+
+}
+
+
+.my-index-div { /*up layer in index page*/
+    min-height: 56.6vh;
+    max-height: 100%;
+    background-color: white;
+}
+
+.my-register-div {
+    min-height: 85.5vh;
+    max-height: 100%;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    /*background-color: #e31b1b;*/
+}
+
+.bg-blur {
+    /*background-color: rgb(0, 0, 0); !* Fallback color *!*/
+    /*background-color: rgba(0, 0, 0, 0.3); !* Black w/opacity/see-through *!*/
+    background-color: rgb(243, 240, 240); /* Fallback color */
+    /*background-color: rgb(245, 234, 234); !* Black w/opacity/see-through *!*/
+
+
+    color: #1c7430;
+
+    font-weight: bold;
+    /*font-weight:  inherit;*/
+    z-index: 2;
+    width: 80%;
+    height: 35%;
+
+    margin-left: 150px;
+
+
+}
+
+body {
+    /*background-image: url("/images/backgraund1.jpg");*/
+
+    background-color: #f3f0f0;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+
+
+}
+
+/*.box-shadow {*/
+/*    background-color: rgb(0, 0, 0); !* Fallback color *!*/
+/*    background-color: rgba(0, 0, 0, 0.4); !* Black w/opacity/see-through *!*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    z-index: 2;*/
+/*    width: 60%;*/
+/*    height: 90%;*/
+/*    !*height: 40%;*!*/
+
+/*}*/
+
+#searchBar {
+    margin-left: 290px;
+}
+
+.carouselExampleIndicators {
+    height: 500px;
+
+}
+
+.carousel-item img {
+    height: 500px;
+    width: 500px;
+    align-content: center;
+}
+
+
+#all-articles-jumbotron {
+    background-image: url("/images/instruments.jpg");
+    /*background-color: #c6c8ca;*/
+    background-position: center;
+}
+
+input:valid {
+    border: lawngreen solid 1px;
+
+
+}
+
+input:invalid {
+
+    border: rgba(231, 10, 10, 0.51) solid 2px;
+    /*border: blue 2px;*/
+}
+
+input:invalid:required {
+    background-image: linear-gradient(to right, #f3f0f0, #e8e4e4);
+}
+
+select:valid {
+    border: lawngreen solid 1px;
+
+
+}
+
+select:invalid {
+
+    border: red solid 2px;
+}
+
+select:invalid:required {
+    background-image: linear-gradient(to right, #f3f0f0, rgba(255, 255, 255, 0.87));
+}
+
+.col-auto #qty {
+    border: 1px;
+    padding: 0;
+    width: 35px !important;
+    text-align: center;
+
+}
+

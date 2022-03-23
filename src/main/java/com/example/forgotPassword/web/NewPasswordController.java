@@ -49,7 +49,7 @@ public class NewPasswordController {
 
     @PostMapping("/reset")
 
-    public String newPasswordConfirm(@RequestBody String token,
+    public String newPasswordConfirm(@RequestParam String token,
                                      @Valid NewPasswordDto newPasswordDto,
                                      BindingResult bindingResult,
                                      RedirectAttributes redirectAttributes) {
@@ -58,8 +58,16 @@ public class NewPasswordController {
 
             redirectAttributes.addFlashAttribute("newPasswordDto", newPasswordDto);
             redirectAttributes.
-                    addFlashAttribute("org.springframework.validation.BindingResult.newPasswordDto", bindingResult);
+                    addFlashAttribute(
+                            "org.springframework.validation.BindingResult.newPasswordDto", bindingResult);
         }
+
+
+
+
+
+
+
 
 
         return "new-password";

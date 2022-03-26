@@ -33,9 +33,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         LogoutConfigurer<HttpSecurity> httpSecurityLogoutConfigurer = http.
                 authorizeRequests().
                 antMatchers("/css/**", "/images/**", "/js/**").permitAll().
-                antMatchers("/new-partner", "/users/login", "/articles/new-partner-api-search",
-                        "/users/register", "/", "/articles/details/{id}", "/category/1-disposable-packaging-bv1",
-                          "/articles/new-partner-details/{id}",
+                antMatchers(  "/users/login",
+                        "/users/register", "/",
                         "/users/reset-password", "/reset").permitAll().
                 antMatchers("/**").authenticated().
                 and().

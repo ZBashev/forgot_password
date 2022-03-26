@@ -9,6 +9,7 @@ public class NewPasswordDto {
     private String confirmPassword;
 
 
+
     public NewPasswordDto() {
     }
 
@@ -31,4 +32,6 @@ public class NewPasswordDto {
         this.confirmPassword = confirmPassword;
         return this;
     }
+
+
 }

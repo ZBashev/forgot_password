@@ -35,7 +35,7 @@ public class NewPasswordController {
 
 
     @PostMapping("/reset")
-    public String newPasswordConfirm(@RequestParam("resetToken") String token,
+    public String newPasswordConfirm(
             @Valid NewPasswordDto newPasswordDto,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes

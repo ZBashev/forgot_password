@@ -7,7 +7,7 @@ public class NewPasswordDto {
 
     private String newPassword;
     private String confirmPassword;
-    private String resetPassword;
+    private String resetToken;
 
 
 
@@ -34,12 +34,12 @@ public class NewPasswordDto {
         return this;
     }
 
-    public String getResetPassword() {
-        return resetPassword;
+    public String getResetToken() {
+        return resetToken;
     }
 
-    public NewPasswordDto setResetPassword(String resetPassword) {
-        this.resetPassword = resetPassword;
+    public NewPasswordDto setResetToken(String resetToken) {
+        this.resetToken = resetToken;
         return this;
     }
 }

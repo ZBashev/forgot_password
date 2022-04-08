@@ -34,7 +34,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 authorizeRequests().
                 antMatchers("/css/**", "/images/**", "/js/**").permitAll().
                 antMatchers(  "/users/login",
-                        "/users/register", "/",
+                        "/users/register", "/", "/modals/send-reset",
                         "/users/reset-password", "/reset").permitAll().
                 antMatchers("/**").authenticated().
                 and().

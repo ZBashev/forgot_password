@@ -2,10 +2,6 @@ package com.example.forgotPassword.web;
 
 
 import com.example.forgotPassword.dto.NewPasswordDto;
-import com.example.forgotPassword.repositories.UserRepository;
-import com.example.forgotPassword.sevices.EmailService;
-import com.example.forgotPassword.sevices.UserService;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,27 +9,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Map;
+
 
 
 @Controller
-
 public class NewPasswordController {
 
 
 
-    private final ModelMapper modelMapper;
-
-    public NewPasswordController(  ModelMapper modelMapper) {
-
-
-        this.modelMapper = modelMapper;
-    }
 
     @GetMapping("/reset")
-    public String newPassword(Model model ) {
-
-
+    public String newPassword(@RequestParam("token") String token, Model model) {
 
 
         if (!model.containsAttribute("newPasswordDto")) {
@@ -41,7 +27,7 @@ public class NewPasswordController {
             model.addAttribute("newPasswordDto", new NewPasswordDto());
         }
 
-
+        model.addAttribute("resetToken", token);
 
         return "new-password";
 
@@ -49,17 +35,13 @@ public class NewPasswordController {
 
 
     @PostMapping("/reset")
-    public String newPasswordConfirm(
+    public String newPasswordConfirm(@RequestParam("resetToken") String token,
             @Valid NewPasswordDto newPasswordDto,
             BindingResult bindingResult,
-            RedirectAttributes redirectAttributes,
-            @RequestParam Map<String, String> token
+            RedirectAttributes redirectAttributes
+
 
     ) {
-
-
-
-
 
 
         if (bindingResult.hasErrors()) {
@@ -69,12 +51,11 @@ public class NewPasswordController {
                     addFlashAttribute(
                             "org.springframework.validation.BindingResult.newPasswordDto", bindingResult);
         }
-        String tokenUUID=token.get("_csrf");
 
 
-        System.out.println(tokenUUID);
 
-        return "/";
+
+        return "redirect: index-bv1.html";
 
 
     }
